@@ -8,7 +8,7 @@
             </aside>
             <main class="col-10">
                 <h1>Home</h1>   
-                <button class="btn btn-danger">Hola mundo</button>
+                <!--<button class="btn btn-danger">Hola mundo</button>-->
                 <!--END MAIN-->
             </main>
             <!--END ROW MAIN-->
