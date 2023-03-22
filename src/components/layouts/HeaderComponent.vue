@@ -1,7 +1,7 @@
 <template>
     <header>
         <nav class="navbar navbar-light bg-verde px-4 d-flex justify-content-between" >
-            <a href="#" class="navbar-brand"> <img src="@/assets/img/logo.jpg" alt="" height="50px" width="50px" class="rounded-circle"> Huellitas felices</a>
+            <a href="#" class="navbar-brand"> <img src="@/assets/img/logo_solo_perro.png" alt="" height="50px" width="50px" class="rounded-circle"> Huellitas felices</a>
             <div>
                 <ul class="navbar-nav">
                     <li class="nav-item">
