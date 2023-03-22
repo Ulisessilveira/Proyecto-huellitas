@@ -3,7 +3,7 @@
         <HeaderComponent/>
         <div class="row">
             <aside class="col-2">
-                <SidebarComponent style="height: 100%"/>
+                <SidebarComponent/>
             </aside>
             <main class="col-10">
                 <h1 class="d-flex justify-content-between">
