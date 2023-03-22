@@ -1,21 +1,20 @@
 <template>
-    <ul class="nav flex-column p-4 ">
+    <ul class="nav flex-column p-4 shadow-lg bg-cafe2" style=" height: 1500px;">
         <li class="nav-item">
-            <router-link to="/admin" class="nav-link">Inicio</router-link>
+            <router-link to="/admin" class="nav-link text-dark">Inicio</router-link>
         </li>
         <li class="nav-item">
-            <router-link to="/admin/orders" class="nav-link">Pedidos</router-link>
+            <router-link to="/admin/orders" class="nav-link text-dark">Pedidos</router-link>
         </li>
         <li class="nav-item">
-            <router-link to="/admin/products" class="nav-link">Productos</router-link>
+            <router-link to="/admin/products" class="nav-link text-dark">Productos</router-link>
         </li>
         <li class="nav-item">
-            <router-link to="/admin/users" class="nav-link">Usuarios</router-link>
+            <router-link to="/admin/users" class="nav-link text-dark">Usuarios</router-link>
         </li>
         <li class="nav-item">
-            <router-link to="/admin/settings" class="nav-link">Ajustes</router-link>
-        </li>
-        
+            <router-link to="/admin/settings" class="nav-link text-dark">Ajustes</router-link>
+        </li>  
     </ul>
 </template>
 

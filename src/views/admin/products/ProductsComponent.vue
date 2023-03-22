@@ -2,11 +2,11 @@
     <div>
         <HeaderComponent/>
         <div class="row">
-            <aside class="col-3">
+            <aside class="col-2">
                 <SidebarComponent/>
                 <!--END SIDEBAR-->
             </aside>
-            <main class="col-9">
+            <main class="col-10">
                 <h1 class="d-flex justify-content-between">
                     <div class="h4 py-2">Productos</div>
                     <div class="px-4">
@@ -21,8 +21,7 @@
                 <div class="row" v-if="!add">
                     <div class="col-3 my-2" v-for="x in data" v-bind:key="x.id">
                         <div class="card">
-                            <img 
-                            v-bind:src="'@/assets/img/' + x.img "
+                            <img src="@/assets/img/producto.jpg"
                             alt="" class="card-img-top">
                             <div class="card-body">
                                 <h5 class="card-title">{{x.name}}</h5>
