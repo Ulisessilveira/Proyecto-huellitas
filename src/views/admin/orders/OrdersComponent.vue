@@ -7,7 +7,7 @@
             </aside>
             <main class="col-10">
                 <h1 class="d-flex justify-content-between">
-                    <div class="h4 py-2">Settings</div>
+                    <div class="h4 py-2">Pedidos</div>
                 </h1>
             </main>
         </div>
@@ -18,10 +18,10 @@
     import HeaderComponent from '@/components/layouts/HeaderComponent.vue';
     import SidebarComponent from '@/components/layouts/SidebarComponent.vue';
     export default{
-        name:'SettingComponent',
-        components: {
+    name: "OrdersComponent",
+    components: {
         HeaderComponent,
         SidebarComponent
     }
-    }
+}
 </script>

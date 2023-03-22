@@ -3,11 +3,13 @@
         <HeaderComponent/>
         <div class="row">
             <aside class="col-2">
-                <SidebarComponent/>
+                <SidebarComponent style="height: 100%"/>
                 <!--END SIDEBAR-->
             </aside>
             <main class="col-10">
-                <h1>Home</h1>   
+                <h1 class="d-flex justify-content-between">
+                    <div class="h4 py-2">Home</div>
+                </h1> 
                 <!--<button class="btn btn-danger">Hola mundo</button>-->
                 <!--END MAIN-->
             </main>

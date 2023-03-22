@@ -1,5 +1,5 @@
 <template>
-    <ul class="nav flex-column p-4 shadow-lg bg-cafe2" style=" height: 1500px;">
+    <ul class="nav flex-column p-4 shadow-lg bg-cafe2">
         <li class="nav-item">
             <router-link to="/admin" class="nav-link text-dark">Inicio</router-link>
         </li>

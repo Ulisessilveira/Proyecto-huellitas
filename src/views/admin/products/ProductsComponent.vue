@@ -3,7 +3,7 @@
         <HeaderComponent/>
         <div class="row">
             <aside class="col-2">
-                <SidebarComponent/>
+                <SidebarComponent style="height: 100%"/>
                 <!--END SIDEBAR-->
             </aside>
             <main class="col-10">
