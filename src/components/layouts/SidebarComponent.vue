@@ -12,9 +12,9 @@
         <li class="nav-item">
             <router-link to="/admin/users" class="nav-link text-dark">Usuarios</router-link>
         </li>
-        <li class="nav-item">
+        <!--li class="nav-item">
             <router-link to="/admin/settings" class="nav-link text-dark">Ajustes</router-link>
-        </li>  
+        </li-->  
     </ul>
 </template>
 
