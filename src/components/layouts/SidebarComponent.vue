@@ -1,7 +1,7 @@
 <template>
     <ul class="nav flex-column p-4 shadow-lg bg-cafe2" style="height: 100vh">
         <li class="nav-item">
-            <router-link to="/admin" class="nav-link text-dark">Home</router-link>
+            <router-link to="/admin" class="nav-link text-dark">Dashboard</router-link>
         </li>
         <li class="nav-item">
             <router-link to="/admin/orders" class="nav-link text-dark">Orders</router-link>
