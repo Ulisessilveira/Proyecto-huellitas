@@ -12,21 +12,68 @@
                 </h1> 
                 <!--<button class="btn btn-danger">Hola mundo</button>-->
                 <!--END MAIN-->
+                <h2>Pie Chart</h2>
+                <div class="piechart"></div>
+
+                <DoughnutChart v-bind="doughnutChartProps" />
+
             </main>
             <!--END ROW MAIN-->
-        </div> 
+            
+        </div>
+         
+        
+        
     </div>
     
+         
+
 </template>
 
+<style>
+.piechart {
+            margin-top: 20px;
+            display: block;
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background-image: conic-gradient(
+                pink 70deg, 
+                lightblue 0 235deg, 
+                orange 0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+</style>
+
 <script>
+
+    
     import HeaderComponent from '@/components/layouts/HeaderComponent.vue';
     import SidebarComponent from '@/components/layouts/SidebarComponent.vue';
+
+   
     export default{
-        name:'HomeComponent',
-        components:{
-            HeaderComponent,
-            SidebarComponent
-        }
-    }
+    name: "HomeComponent",
+    components: { 
+        
+        
+        HeaderComponent,
+        SidebarComponent
+            
+      }
+}
+    
+          
 </script>
+
