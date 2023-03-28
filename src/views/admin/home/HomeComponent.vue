@@ -15,7 +15,6 @@
                 <h2>Pie Chart</h2>
                 <div class="piechart"></div>
 
-                <DoughnutChart v-bind="doughnutChartProps" />
 
             </main>
             <!--END ROW MAIN-->
