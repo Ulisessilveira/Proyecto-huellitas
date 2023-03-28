@@ -19,7 +19,11 @@
 
             </main>
             <!--END ROW MAIN-->
-            
+            <Bar
+              id="my-chart-id"
+              :options="chartOptions"
+              :data="chartData"
+            />
         </div>
          
         
@@ -51,22 +55,30 @@
 
 <script>
 
-    
     import HeaderComponent from '@/components/layouts/HeaderComponent.vue';
     import SidebarComponent from '@/components/layouts/SidebarComponent.vue';
+    import { Bar } from 'vue-chartjs'
+    import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js'
 
+    ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
    
     export default{
     name: "HomeComponent",
-    components: { 
-        
-        
-        HeaderComponent,
-        SidebarComponent
+    components: { Bar, HeaderComponent, SidebarComponent
             
+      }, data() {
+    return {
+      chartData: {
+        labels: [ 'January', 'February', 'March' ],
+        datasets: [ { data: [40, 20, 12] } ]
+      },
+      chartOptions: {
+        responsive: true
       }
+    }
+  }
 }
-    
-          
 </script>
+      
+
 
