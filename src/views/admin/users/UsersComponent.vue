@@ -39,7 +39,7 @@
                                 </thead>
                                 <tbody>
                                     <tr v-for="x in data" v-bind:key="x.id">
-                                        <td class="text-center"><img class="img-Profile rounded-circle" src="@/assets/img/user-circle-svgrepo-com.png" alt=""></td>
+                                        <td class="text-center"><img class="img-Profile rounded-circle" :src="+x.img" alt=""></td>
                                         <td>{{x.name}}</td>
                                         <td>{{x.email}}</td>
                                         <td>{{x.phone}}</td>
@@ -104,9 +104,9 @@
                 add:false,
                 edit:false,
                 data:[
-                    {id:1,name:'Ulises Silveira',email:'josu011201@gmail.com',phone:'636-132-3309',address:'Infonavit Paquime, Rio Conchos #2321',img:'userProfile1.jpg'},
-                    {id:2,name:'Saul Rodrigez',email:'capitan@gmail.com',phone:'636-222-2164',address:'Cerca del Aurrera',img:'userProfile2.jpeg'},
-                    {id:3,name:'Ulises Silveira',email:'josu011201@gmail.com',phone:'636-132-3309',address:'Infonavit Paquime, Rio Conchos #2321',img:'userProfile2.jpeg'},
+                    {id:1,name:'Ulises Silveira',email:'josu011201@gmail.com',phone:'636-132-3309',address:'Infonavit Paquime, Rio Conchos #2321',img:'@/assets/img/userProfile1.jpg'},
+                    {id:2,name:'Saul Rodrigez',email:'capitan@gmail.com',phone:'636-222-2164',address:'Cerca del Aurrera',img:'@/assets/img/userProfile2.jpeg'},
+                    {id:3,name:'Ulises Silveira',email:'josu011201@gmail.com',phone:'636-132-3309',address:'Infonavit Paquime, Rio Conchos #2321',img:'@/assets/img/userProfile2.jpeg'},
                 ]           
             }
             

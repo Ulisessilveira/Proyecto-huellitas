@@ -6,24 +6,23 @@
                 <SidebarComponent/>
                 <!--END SIDEBAR-->
             </aside>
-            <main class="col-10">
+            <!--main class="col-10">
                 <h1 class="d-flex justify-content-between">
                     <div class="h4 py-2">Home</div>
                 </h1> 
-                <!--<button class="btn btn-danger">Hola mundo</button>-->
-                <!--END MAIN-->
+                <--<button class="btn btn-danger">Hola mundo</button>>
+                <--END MAIN>
                 <h2>Pie Chart</h2>
                 <div class="piechart"></div>
 
-                <DoughnutChart v-bind="doughnutChartProps" />
 
             </main>
-            <!--END ROW MAIN-->
+            <--END ROW MAIN>
             <Bar
               id="my-chart-id"
               :options="chartOptions"
               :data="chartData"
-            />
+            /-->
         </div>
          
         
@@ -57,24 +56,24 @@
 
     import HeaderComponent from '@/components/layouts/HeaderComponent.vue';
     import SidebarComponent from '@/components/layouts/SidebarComponent.vue';
-    import { Bar } from 'vue-chartjs'
-    import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js'
+    //import { Bar } from 'vue-chartjs'
+    //import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js'
 
-    ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
+    //ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
    
     export default{
     name: "HomeComponent",
-    components: { Bar, HeaderComponent, SidebarComponent
+    components: { /*Bar,*/ HeaderComponent, SidebarComponent
             
       }, data() {
     return {
-      chartData: {
+      /*chartData: {
         labels: [ 'January', 'February', 'March' ],
         datasets: [ { data: [40, 20, 12] } ]
       },
       chartOptions: {
         responsive: true
-      }
+      }*/
     }
   }
 }

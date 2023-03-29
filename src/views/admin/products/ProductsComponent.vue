@@ -19,13 +19,13 @@
                     </div>
                 </h1> 
                 <div class="row" v-if="!add">
-                    <div class="col-3 my-2" v-for="x in data" v-bind:key="x.id">
+                    <div class="col-3 my-2" v-for="x in data" v-bind:key="x.product.id">
                         <div class="card">
-                            <img src="@/assets/img/producto.jpg"
-                            alt="" class="card-img-top">
+                            <img :src="'http://localhost:8000/img/products/'+x.product.img"
+                            alt="imagen de comida para wawas" class="card-img-top img-product">
                             <div class="card-body">
-                                <h5 class="card-title">{{x.name}}</h5>
-                                <p class="card-text">Descripción</p>
+                                <h5 class="card-title">{{x.product.name}}</h5>
+                                <p class="card-text">{{x.product.description}}</p>
                                 <div class="d-flex justify-content-between p2">
                                     <button class="btn btn-sm btn-outline-info"><i class="fa fa-edit"></i></button>
                                     <div>
@@ -50,6 +50,7 @@
     import HeaderComponent from '@/components/layouts/HeaderComponent.vue';
     import SidebarComponent from '@/components/layouts/SidebarComponent.vue';
     import ProductAddComponent from './ProductAddComponent.vue';
+    import axios from 'axios'
     export default{
         name:'productsComponent',
         components:{
@@ -61,14 +62,22 @@
 
             return {
                 add:false,
-                data:[
-                    {id:1,name:'Product 1',price:200,img:'delfin.jpg'},
-                    {id:2,name:'Product 2',price:300,img:'delfin.jpg'},
-                    {id:3,name:'Product 3',price:400,img:'delfin.jpg'},
-                    {id:4,name:'Product 4',price:500,img:'delfin.jpg'},
-                    {id:6,name:'Product 5',price:600,img:'delfin.jpg'},
-                ]
+                data:[]
             }
+        },created(){
+            axios.get("http://localhost:8000/api/products").then((result)=>{
+                if (result.data.status == 'success'){
+                    this.data = result.data.data
+                }
+            })
         }
     }
 </script>
+
+<style>
+.img-product{
+    text-align: center;
+    height: 500px;
+    width: 100%;
+}
+</style>

@@ -1,0 +1,16 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Product_media extends Model
+{
+    use HasFactory;
+    protected $table = 'product_medias';
+    protected $fillable = [
+        'file',
+        'id_product'
+    ];
+}
