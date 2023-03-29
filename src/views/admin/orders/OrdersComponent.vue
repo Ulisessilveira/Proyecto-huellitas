@@ -10,7 +10,9 @@
                     <div class="h4 py-2">Pedidos</div>
                 </h1>
             </main>
+            
         </div>
+        
     </div>
 </template>
 
