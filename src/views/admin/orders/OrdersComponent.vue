@@ -9,7 +9,7 @@
                 <h1 class="d-flex justify-content-between">
                     <div class="h4 py-2">Pedidos</div>
                 </h1>
-            <table class="dataTable">
+            <table class="table">
                 <thead>
                     <tr>
                         <th>Numbers</th>
@@ -30,7 +30,7 @@
                         <td>$60.42</td>
                         <td>PAID</td>
                         <td>
-                            <button class="button action">Select</button>
+                            <button class="btn btn-outline-dark mx-1">Select</button>
                         </td>
                     </tr>
                     <tr>
@@ -41,7 +41,7 @@
                         <td>$69.68</td>
                         <td>PAID</td>
                         <td>
-                            <button class="button action">Select</button>
+                            <button class="btn btn-outline-dark mx-1">Select</button>
                         </td>
                     </tr>
                     <tr>
@@ -52,7 +52,7 @@
                         <td>$86.68</td>
                         <td>PAID</td>
                         <td>
-                            <button class="button action">Select</button>
+                            <button class="btn btn-outline-dark mx-1">Select</button>
                         </td>
                     </tr>
                     <tr>
@@ -63,7 +63,7 @@
                         <td>$63.50</td>
                         <td>PAID</td>
                         <td>
-                            <button class="button action">Select</button>
+                            <button class="btn btn-outline-dark mx-1">Select</button>
                         </td>
                     </tr>
                     <tr>
@@ -74,7 +74,7 @@
                         <td>$74.73</td>
                         <td>PAID</td>
                         <td>
-                            <button class="button action">Select</button>
+                            <button class="btn btn-outline-dark mx-1">Select</button>
                         </td>
                     </tr>
                     <tr>
@@ -85,7 +85,7 @@
                         <td>$0.00</td>
                         <td>PENDING</td>
                         <td>
-                            <button class="button action">Select</button>
+                            <button class="btn btn-outline-dark mx-1">Select</button>
                         </td>
                     </tr>
                 </tbody>

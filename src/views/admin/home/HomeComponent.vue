@@ -120,11 +120,11 @@
       ]
     },
     chartConfig: {
-        labels: ['Toys', 'Dog food', 'Cat foot', 'others'],
+        labels: ['Toys', 'food', 'House', 'others','Dog collar'],
           datasets: [
             { 
-              backgroundColor: ['#41B883', '#E46651', '#00D8FF', '#DD1B16'],
-              data: [20, 80, 40, 10] } ],
+              backgroundColor: ['#41B883', '#E46651', '#00D8FF', '#DD1B16','#FFDF6E'],
+              data: [20, 80, 40, 10 ,20] } ],
     },
     chartData: {
       Tooltip: "Sold",
