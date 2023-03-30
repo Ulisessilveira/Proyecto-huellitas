@@ -22,7 +22,7 @@
       <p>
         Select Surfaces are on sale now - save while supplies last
       </p>
-      <a href="#" class="btn">
+      <a href="#" class="btnm">
         Shop Now <i class="fas fa-chevron-right"></i>
       </a>
     </header>
@@ -74,7 +74,7 @@
         <p>Xbox Game Pass Ultimate Xbox Live Gold and over 100 high-quality
           console and PC games. Play together with friends and discover your
           next favorite game.</p>
-          <a href="#" class="btn">
+          <a href="#" class="btnm">
             Join Now <i class="fas fa-chevron-right"></i>
           </a>
       </div>
@@ -123,7 +123,7 @@
           <h2>Commiting To Carbon Negative</h2>
           <p>Microsoft will be carbon negative by 2030 and by 2050 we will remove
             all carbon the company has emitted since it was founded in 1975</p>
-            <a href="#" class="btn">
+            <a href="#" class="btnm">
               Learn More <i class="fas fa-chevron-right"></i>
             </a>
         </div>
@@ -291,7 +291,7 @@ ul {
   display: none;
 }
 
-.btn {
+.btnm {
   cursor: pointer;
   display: inline-block;
   border: 0;
