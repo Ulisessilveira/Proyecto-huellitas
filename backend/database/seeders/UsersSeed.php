@@ -17,20 +17,20 @@ class UsersSeed extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'name'=>'Usuario 1',
-            'email'=>'u1@gmail.com',
+            'name'=>'Ulises silveira',
+            'email'=>'ulises_silveira@gmail.com',
             'password'=>Hash::make('123'),
-            'phone'=>'6360000000',
-            'img'=>'default.jpg',
-            'address'=>'calle pino 8'
+            'phone'=>'636-132-3309',
+            'img'=>'img_users_1.jpg',
+            'address'=>'mi casita'
         ]);
         DB::table('users')->insert([
-            'name'=>'Usuario 2',
-            'email'=>'u2@gmail.com',
+            'name'=>'Saul Rodrigez',
+            'email'=>'saul_rodrigez@gmail.com',
             'password'=>Hash::make('123'),
-            'phone'=>'6361111111',
-            'img'=>'default.jpg',
-            'address'=>'calle pino 9'
+            'phone'=>'636-104-8730',
+            'img'=>'img_users_2.jpeg',
+            'address'=>'casita de saul'
         ]);
     }
 }

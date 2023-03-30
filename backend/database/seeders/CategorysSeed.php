@@ -15,10 +15,10 @@ class CategorysSeed extends Seeder
      */
     public function run()
     {
-        DB::table('categorys')->insert(['name'=>'Pantalones']);
-        DB::table('categorys')->insert(['name'=>'Zapatos']);
-        DB::table('categorys')->insert(['name'=>'Blusas']);
-        DB::table('categorys')->insert(['name'=>'Gorras']);
-        DB::table('categorys')->insert(['name'=>'Tenis']);
+        DB::table('categorys')->insert(['name'=>'Food']);
+        DB::table('categorys')->insert(['name'=>'Toys']);
+        DB::table('categorys')->insert(['name'=>'Houses']);
+        DB::table('categorys')->insert(['name'=>'Clothes']);
+        DB::table('categorys')->insert(['name'=>'Dog collar']);
     }
 }
