@@ -5,6 +5,8 @@ import NotFoundComponent from '@/views/admin/notfound/NotFoundComponent'
 import ProductsComponent from '@/views/admin/products/ProductsComponent'
 import OrdersComponent from '@/views/admin/orders/OrdersComponent'
 import UsersComponent from '@/views/admin/users/UsersComponent'
+import IndexComponent from '@/views/front/index/IndexComponent'
+
 import ProfileComponent from '@/views/front/profile/ProfileComponent'
 const routes=[
     {path:'/admin',name:'admin',component:HomeConponent},
@@ -13,6 +15,7 @@ const routes=[
     {path:'/admin/orders',name:'orders',component:OrdersComponent},
     {path:'/admin/users',name:'users',component:UsersComponent},
     {path:'/profile',name:'profile',component:ProfileComponent},
+    {path:'/',name:'index',component:IndexComponent},
     {path:'/:pathmatch(.*)*',name:'notfound',component:NotFoundComponent}
 ]
 const router = vueRouter.createRouter({
