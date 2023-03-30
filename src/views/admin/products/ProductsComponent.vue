@@ -64,7 +64,8 @@
                 add:false,
                 data:[]
             }
-        },created(){
+        },
+        created(){
             axios.get("http://localhost:8000/api/products").then((result)=>{
                 if (result.data.status == 'success'){
                     this.data = result.data.data

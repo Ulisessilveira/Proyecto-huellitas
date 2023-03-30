@@ -41,10 +41,6 @@
                 <label for="">Category</label>
                 <select name="" id="" class="form-control">
                     <option value="1">Food</option>
-                    <option value="2">Toys</option>
-                    <option value="3">House</option>
-                    <option value="4">Clothes</option>
-                    <option value="5">Dog collar</option>
                 </select>
             </div>
             <div class="form-group mt-1 mt-2">
