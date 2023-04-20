@@ -3466,3 +3466,23 @@ ol {
 		font-size: 24px;
 	}
 }
+
+.overlay {
+	position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #B6E2BD;
+    opacity: 0.5; /* ajusta la opacidad según tus necesidades */
+}
+.breadcrumb-section {
+    position: relative;
+}
+
+.breadcrumb-section img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+  
