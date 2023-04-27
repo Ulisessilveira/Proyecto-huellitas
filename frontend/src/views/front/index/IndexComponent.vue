@@ -18,7 +18,8 @@
                     <div class="col mb-5" v-for="x in data" v-bind:key="x.product.id">
                         <div class="card h-100">
                             <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                            <img class="card-img-top" :src="url+'img/products/'+x.product.img" alt="..." />
+                            
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -31,7 +32,7 @@
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                 <div class="text-center">
-                                    <router-link class="btn btn-outline-dark mt-auto" to="/details">View more</router-link>
+                                    <router-link class="btn btn-outline-dark mt-auto" :to="'/details/'+x.product.slug">View more</router-link>
                                 </div>
                             </div>
                         </div>
@@ -58,14 +59,16 @@
             return{
                 categorys:[],
                 data:[],
-                loaded:false
+                loaded:false,
+                url:""
             }
         },created() {
-                axios.get("http://localhost:8000/api/products/").then((result)=>{
-                    if (result.data.status == 'success'){
-                        this.data = result.data.data
-                    }
-                })
+            this.url = process.env.VUE_APP_IMG
+            axios.get(process.env.VUE_APP_URL+"products").then((result)=>{
+                if (result.data.status == 'success'){
+                    this.data = result.data.data
+                }
+            })
         }
     }
 </script>

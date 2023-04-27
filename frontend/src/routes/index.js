@@ -15,7 +15,7 @@ const routes=[
     {path:'/admin/orders',name:'orders',component:OrdersComponent},
     {path:'/admin/users',name:'users',component:UsersComponent},
     {path:'/profile',name:'profile',component:ProfileComponent},
-    {path:'/details',name:'details',component:DetailsComponent},
+    {path:'/details/:slug',name:'details',component:DetailsComponent},
 
     {path:'/',name:'index',component:IndexComponent},
     
