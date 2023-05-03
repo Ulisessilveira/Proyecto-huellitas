@@ -181,8 +181,8 @@ class ProductsController extends Controller
 
     //Mostrar producto por id
     public function show($id){
-        if(Product::where('id',$id)->exists()){
-            $product = Product::find($id);
+        if(Product::where('slug',$id)->exists()){
+            $product = Product::where('slug',$id)->first();
             return response()->json([
                 'status'=>'success',
                 'data'=>$product
