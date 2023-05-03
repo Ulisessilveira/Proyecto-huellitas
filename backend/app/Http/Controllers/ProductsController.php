@@ -206,7 +206,7 @@ class ProductsController extends Controller
             'stock'=>'required',
             'size'=>'required',
             'status'=>'required',
-            'slug'=>'required',
+            //'slug'=>'required',
             'id_category'=>'required',
             'id_user'=>'required',
         ]);
@@ -227,7 +227,7 @@ class ProductsController extends Controller
             $product->stock = $request->stock;
             $product->size = $request->size;
             $product->status = $request->status;
-            $product->slug = $request->slug;
+            //$product->slug = "";
             $product->id_category = $request->id_category;
             $product->id_user = $request->id_user;
             $product->save();
