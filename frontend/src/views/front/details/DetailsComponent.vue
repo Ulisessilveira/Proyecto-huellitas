@@ -141,6 +141,9 @@
         name:'DetailsComponent',
         components:{
             NavFrontComponent
+        },
+        created(){
+            console.log(this.$route.params.slug)
         }
     }
 </script>
