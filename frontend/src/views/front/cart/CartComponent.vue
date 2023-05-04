@@ -7,6 +7,7 @@
                 <thead>
                     <tr>
                         <th>#</th>
+                        <th>Img</th>
                         <th>Name</th>
                         <th>Price</th>
                         <th>Quantity</th>
@@ -16,6 +17,7 @@
                 <tbody>
                     <tr v-for="item in items" v-bind:key="item.id">
                         <td>{{  item.id  }}</td>
+                        <td><img style="height: 50px; width: 50px;" :src="url+'img/products/'+item.img" alt="img producto" /></td>
                         <td>{{  item.name  }}</td>
                         <td>${{  item.price.toFixed(2)  }}</td>
                         <td>{{  item.cantidad.toFixed(2)  }}</td>
@@ -37,7 +39,8 @@
         data(){
             return{
                 items:[],
-                total:0
+                total:0,
+                url:""
             }
         },
         mounted(){
@@ -46,6 +49,8 @@
                 this.total += item.price * item.cantidad
             })
 
+        },created() {
+            this.url = process.env.VUE_APP_IMG
         }
     }
 </script>
