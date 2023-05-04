@@ -14,15 +14,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Agua wawa</td>
-                        <td>$59.99</td>
-                        <td>4</td>
-                        <td>$239.96</td>
+                    <tr v-for="item in items" v-bind:key="item.id">
+                        <td>{{  item.id  }}</td>
+                        <td>{{  item.name  }}</td>
+                        <td>${{  item.price.toFixed(2)  }}</td>
+                        <td>{{  item.cantidad.toFixed(2)  }}</td>
+                        <td>${{  (item.price * item.cantidad).toFixed(2)  }}</td>
                     </tr>
                 </tbody>
             </table>
+            <h6 class="text-end">Total: ${{ total.toFixed(2) }}</h6>
         </section>
     </div>
 </template>
@@ -32,6 +33,19 @@
         name:'CartComponent',
         components:{
             NavFrontComponentVue
+        },
+        data(){
+            return{
+                items:[],
+                total:0
+            }
+        },
+        mounted(){
+            this.items = JSON.parse(localStorage.getItem('carrito'))
+            this.items.forEach(item=>{
+                this.total += item.price * item.cantidad
+            })
+
         }
     }
 </script>

@@ -177,6 +177,7 @@
                     }
                     localStorage.setItem('carrito', JSON.stringify(arrayCarrito))
                 }
+                this.$router.push('/cart');
 
                 
             }
