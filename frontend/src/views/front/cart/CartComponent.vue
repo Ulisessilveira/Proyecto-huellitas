@@ -17,7 +17,7 @@
                 <tbody>
                     <tr v-for="item in items" v-bind:key="item.id">
                         <td>{{  item.id  }}</td>
-                        <td><img style="height: 50px; width: 50px;" :src="url+'img/products/'+item.img" alt="img producto" /></td>
+                        <td><img class="imgCart" :src="url+'img/products/'+item.img" alt="img producto" /></td>
                         <td>{{  item.name  }}</td>
                         <td>${{  item.price.toFixed(2)  }}</td>
                         <td>{{  item.cantidad.toFixed(2)  }}</td>
@@ -54,3 +54,10 @@
         }
     }
 </script>
+
+<style>
+    .imgCart{
+        width: 45px;
+        height: 45px;
+    }
+</style>
