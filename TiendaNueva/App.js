@@ -7,8 +7,8 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen component={LoginComponent} name="Login"/>
-        <Stack.Screen component={HomeComponent} name="Home"/>
+        <Stack.Screen component={LoginComponent} name="Login" options={{headerShown: false}}/>
+        <Stack.Screen component={HomeComponent} name="Home" options={{title: "Super Tienda"}}/>
       </Stack.Navigator>
     </NavigationContainer>
     
