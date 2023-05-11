@@ -12,20 +12,27 @@
                         <th>Price</th>
                         <th>Quantity</th>
                         <th>SubTotal</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="item in items" v-bind:key="item.id">
+                    <tr v-for="(item, index ) in items" v-bind:key="item.id">
                         <td>{{  item.id  }}</td>
                         <td><img class="imgCart" :src="url+'img/products/'+item.img" alt="img producto" /></td>
                         <td>{{  item.name  }}</td>
                         <td>${{  item.price.toFixed(2)  }}</td>
                         <td>{{  item.cantidad.toFixed(2)  }}</td>
                         <td>${{  (item.price * item.cantidad).toFixed(2)  }}</td>
+                        <td><button class="btn btn-outline-danger" @click="borrar(index)">x</button></td>
                     </tr>
                 </tbody>
             </table>
             <h6 class="text-end">Total: ${{ total.toFixed(2) }}</h6>
+            <div class="row">
+                <button class="btn btn-danger btn-sm col-1" @click="vaciar">
+                    <i class="fa fa-trash"></i> Vaciar
+                </button>
+            </div>
         </section>
     </div>
 </template>
@@ -51,6 +58,21 @@
 
         },created() {
             this.url = process.env.VUE_APP_IMG
+        },
+        methods:{
+            vaciar(){
+                this.item = []
+                this.total = 0
+                localStorage.removeItem('carrito')
+            },
+            borrar(index){
+                this.items.splice(index,1)
+                this.total = 0
+                this.items.forEach(item=>{
+                    this.total += item.price * item.cantidad
+                })
+                localStorage.setItem('carrito', JSON.stringify(this.items))
+            }
         }
     }
 </script>
