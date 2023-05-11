@@ -9,6 +9,7 @@ import IndexComponent from '@/views/front/index/IndexComponent'
 import DetailsComponent from '@/views/front/details/DetailsComponent'
 import ProfileComponent from '@/views/front/profile/ProfileComponent'
 import CartComponent from '@/views/front/cart/CartComponent'
+import CheckOutComponent from '@/views/front/cart/CheckOutComponent'
 const routes=[
     {path:'/admin',name:'admin',component:HomeConponent},
     {path:'/admin/settings',name:'settings',component:SettingsComponent},
@@ -18,7 +19,9 @@ const routes=[
     {path:'/profile',name:'profile',component:ProfileComponent},
     {path:'/details/:slug',name:'details',component:DetailsComponent},
     {path:'/cart',name:'cart',component:CartComponent},
+    {path:'/checkout',name:'checkout',component:CheckOutComponent},
     {path:'/',name:'index',component:IndexComponent},
+    
     
     {path:'/:pathmatch(.*)*',name:'notfound',component:NotFoundComponent}
 
