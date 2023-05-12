@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategorysController;
 use App\Http\Controllers\ProductsController;
@@ -35,7 +36,7 @@ Route::post('products/ver/media/{id}',[ProductsController::class,'verMedia']);
 Route::resource('categorys',CategorysController::class);
 Route::resource('cart',CartController::class);
 Route::resource('sells',SellsController::class);
-
+Route::post('/login',[AuthController::class,'login']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

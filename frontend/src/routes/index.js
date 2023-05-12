@@ -10,6 +10,7 @@ import DetailsComponent from '@/views/front/details/DetailsComponent'
 import ProfileComponent from '@/views/front/profile/ProfileComponent'
 import CartComponent from '@/views/front/cart/CartComponent'
 import CheckOutComponent from '@/views/front/cart/CheckOutComponent'
+import LoginComponent from '@/views/front/auth/LoginComponent'
 const routes=[
     {path:'/admin',name:'admin',component:HomeConponent},
     {path:'/admin/settings',name:'settings',component:SettingsComponent},
@@ -20,6 +21,7 @@ const routes=[
     {path:'/details/:slug',name:'details',component:DetailsComponent},
     {path:'/cart',name:'cart',component:CartComponent},
     {path:'/checkout',name:'checkout',component:CheckOutComponent},
+    {path:'/login',name:'login',component:LoginComponent},
     {path:'/',name:'index',component:IndexComponent},
     
     

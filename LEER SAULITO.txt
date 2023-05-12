@@ -1,0 +1,15 @@
+SI QUIERES QUE LAS COSAS QUE HICE FUNCIONEN INSTALA ESTO JEJE
+
+ESTO ES DEL BACKEND
+    • cd backend
+    • composer require tymon/jwt-auth
+    • php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"
+
+    //realmente no se si es necesario pero si te da error pues lo ejecutas :ProductsController
+
+FRONTEND
+    ○ cd frontend
+    ○ npm install js-cookie --save --force por tus pinches graficas
+
+
+

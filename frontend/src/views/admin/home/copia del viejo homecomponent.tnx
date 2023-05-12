@@ -6,12 +6,10 @@
               <SidebarComponent/>
               <!--END SIDEBAR-->
           </aside>
-          <main class="col-10"> 
+          <main class="col-10">
               <h1 class="d-flex justify-content-between">
                   <div class="h4 py-2">Home</div>
               </h1> 
-              <p v-if="userLogged">User data: {{ userLogged}}</p>
-              <button  @click="salir">LOGOUT</button>
               <!--<button class="btn btn-danger">Hola mundo</button>-->
               <!--END MAIN-->
               <!--<h2>Pie Chart</h2>-->
@@ -95,10 +93,8 @@
 
 <script>
 
-
   import HeaderComponent from '@/components/layouts/HeaderComponent.vue';
   import SidebarComponent from '@/components/layouts/SidebarComponent.vue';
-  import auth from "@/logic/auth";
   import { Bar } from 'vue-chartjs'
   import { Doughnut } from 'vue-chartjs'
   import { Line } from 'vue-chartjs'
@@ -108,24 +104,10 @@
   ChartJS.register(Title, Tooltip, Legend, ArcElement, BarElement, CategoryScale, LinearScale, PointElement, LineElement)
  
   export default{
-
-    
   name: "HomeComponent",
   components: { Bar, Doughnut, Line, HeaderComponent, SidebarComponent
           
-  },computed: {
-      userLogged() {
-          
-          return auth.getUserLogged();
-      }
-  },
-  methods:{
-      salir(){
-          auth.deleteUserLogged()
-          this.$router.push("/");
-      }
-  },
-  data() {
+    }, data() {
   return {
     chartLine: {
         labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
@@ -157,7 +139,7 @@
       responsive: true,
       type: Object,
     default: () => {}
-    },
+    }
   }
 }
 }
