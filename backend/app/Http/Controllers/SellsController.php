@@ -8,9 +8,48 @@ use Illuminate\Http\Request;
 use Validator;
 
 class SellsController extends Controller
-{
-    //Hacer una venta
+{   
+    //Hacer una venta sin login
     public function store(Request $request){
+        $reglas=Validator::make($request->all(),[
+            'name'=>'required|min:3',
+            'ln'=>'required|min:3',
+            'email'=>'required|email',
+            'address'=>'required|min:4',
+            'cp'=>'required',
+            'reference'=>'required',
+            'ln'=>'required',
+            'phone'=>'required',
+            'items'=>'required',
+        ]);
+        if($reglas->fails()){
+            return response()->json([
+                'status'=>'error',
+                'message'=>'Todo imbecil(Validator Error)',
+                'data'=>$reglas->errors()
+            ],201);
+        }else{
+            /*$sell = new Sell();
+            $sell->status = $request->status;
+            $sell->ship_tax = $request->ship_tax;
+            $sell->id_user = $request->id_user;
+            $sell->save();
+            foreach($request->products as $p){
+                $sell_item = new Sell_item();
+                $sell_item->price = $p['price'];
+                $sell_item->quantity = $p['quantity'];
+                $sell_item->id_product = $p['id_product'];
+                $sell_item->id_sell = $sell->id;
+                $sell_item->save();
+            }*/
+            return response()->json([
+                'status'=>'success',
+                'message'=>'Compra realizada :D'
+            ]);
+        }
+    }
+    //Hacer una venta con login
+    public function store2(Request $request){
         $reglas=Validator::make($request->all(),[
             'status'=>'required',
             'ship_tax'=>'required',
