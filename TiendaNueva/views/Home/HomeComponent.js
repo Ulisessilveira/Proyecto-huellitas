@@ -1,5 +1,6 @@
 import {View,Text,ScrollView} from"react-native"
 import HeaderComponent from "../layouts/HeaderComponent"
+import ProductItemComponent from "../../components/ProductItemComponent" 
 
 export default function HomeComponent() {
   let data = [
@@ -12,10 +13,15 @@ export default function HomeComponent() {
   return (
     <View>
         <HeaderComponent/>
+        <ProductItemComponent/>
         <ScrollView style={{marginTop:60}}>
           {
-            data.forEach((item,index)=>{
-
+            data.map((item,index)=>{
+              return (
+                <view key={"item_"+index}>
+                    <ProductItemComponent/>
+                </view>
+              )
             })
           }
         </ScrollView>
