@@ -70,7 +70,9 @@
                     <div class="row" v-if="step == 3">
                         <h2 class="h5">Payment method</h2>
                         <div class="form-group">
-                            <button class="btn btn-outline-primary" @click="sendData()">
+                            <div v-if="!paid" id="btnPaypal" ></div>
+                            <div v-else id="confirmation" >Order complete!</div>
+                            <button  class="btn btn-outline-primary" @click="sendData()">
                                 <i class="fa fa-arrow-right"></i> Finish
                             </button>
                         </div>
@@ -103,6 +105,7 @@
 <script>
     import NavFrontComponent from '@/components/layoutsfrontend/NavFrontComponent.vue';
     import axios from 'axios';
+    import {loadScript} from "@paypal/paypal-js"
     export default{
         name:'CheckOutComponent',
         components:{
@@ -123,7 +126,11 @@
                 phone:"6361234567",
                 address:"sucasita",
                 cp:"31700",
-                reference:"hay un wawa azul"
+                reference:"hay un wawa azul",
+
+                paypal:null,
+                paid:false
+
             }
         },
         mounted(){
@@ -147,6 +154,16 @@
             validateEnvio(){
                 if(this.address.trim() !="" && this.cp !="" && this.reference.trim()!=""){
                     this.step = 3
+                    loadScript({
+                        'client-id':"AbH0PT9Y_F3LyTIiy_99rLnvR-TDzyst84K3ksOqN5p0C5q-rKTF9DdhbiH5d2sCwDXhmAaa7979SMp-",
+                        currency:'MXN'
+                    }).then((paypal)=>{
+                        paypal.Buttons({
+                            createOrder: this.createOrder,
+                            onApprove: this.onApprove,
+                        })
+                        .render('#btnPaypal')
+                    })
                 }else{
                     this.formValid2 = true
                 }
@@ -164,6 +181,25 @@
                 }
                 axios.post(process.env.VUE_APP_URL+"sells",data).then(res=>{
                     console.log(res);
+                })
+            },
+            createOrder: function(data,actions){
+                console.log('Creating order...')
+                return actions.order.create({
+                    purchase_units:[
+                        {
+                            amount: {
+                                value: this.total,
+                            }
+                        }
+                    ]
+                })
+            },
+            onApprove: function(data,actions){
+                console.log('Order approved...')
+                return actions.order.capture().then(()=>{
+                    this.paid = true;
+                    console.log('Order complete!')
                 })
             }
         }

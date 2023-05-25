@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Sell;
 use App\Models\Sell_item;
+use App\Models\User;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Validator;
 
 class SellsController extends Controller
@@ -25,31 +28,56 @@ class SellsController extends Controller
         if($reglas->fails()){
             return response()->json([
                 'status'=>'error',
-                'message'=>'Todo imbecil(Validator Error)',
+                'message'=>'Error',
                 'data'=>$reglas->errors()
             ],201);
         }else{
-            /*$sell = new Sell();
-            $sell->status = $request->status;
-            $sell->ship_tax = $request->ship_tax;
-            $sell->id_user = $request->id_user;
-            $sell->save();
-            foreach($request->products as $p){
-                $sell_item = new Sell_item();
-                $sell_item->price = $p['price'];
-                $sell_item->quantity = $p['quantity'];
-                $sell_item->id_product = $p['id_product'];
-                $sell_item->id_sell = $sell->id;
-                $sell_item->save();
-            }*/
-            return response()->json([
-                'status'=>'success',
-                'message'=>'Compra realizada :D'
-            ]);
+            //VERIFICAR SI EXISTE EL USUARIO
+            try{
+                $user = User::where('email',$request->email)->first();
+                if(is_null($user)){
+                    $user = new User();
+                    $user-> name = $request->name;
+                    $user -> email = $request->email;
+                    $user -> password = Hash::make($request->email);
+                    $user -> phone = $request->phone;
+                    $user -> img = "default.jpg";
+                    $user -> address = $request->address;
+                    $user->save();
+                }//Llave null
+
+                //Guardar venta
+                $sell = new Sell();
+                $sell->status = 'preparacion';
+                $sell->ship_tax = 150.00;
+                $sell->id_user = $user->id_user;
+                $sell->save();
+
+                //guardar productos de la venta
+                foreach($request->items as $item){
+                    $sell_item = new Sell_item();
+                    $sell_item->price = $item['price'];
+                    $sell_item->quantity = $item['cantidad'];
+                    $sell_item->id_product = $item['id'];
+                    $sell_item->id_sell = $sell->id;
+                    $sell_item->save();
+                }
+                return response()->json([
+                    'status'=>'success',
+                    'sell'=>$sell,
+                    'message'=>'Compra realizada :D'
+                ],200);
+            }catch(Exception $e){
+                return response()->json([
+                    'status'=>'error',
+                    'message'=>'Todo imbecil(Validator Error)',
+                    'data'=>$reglas->errors()
+                ],201);
+            }
         }
     }
     //Hacer una venta con login
-    public function store2(Request $request){
+    /*public function store2(Request $request){
         $reglas=Validator::make($request->all(),[
             'status'=>'required',
             'ship_tax'=>'required',
@@ -80,7 +108,7 @@ class SellsController extends Controller
                 'message'=>'Compra realizada :D'
             ]);
         }
-    }
+    }*/
     //consultar una venta
     public function index(){
         $datos = Sell::select('sells.*','users.name as user_name')
