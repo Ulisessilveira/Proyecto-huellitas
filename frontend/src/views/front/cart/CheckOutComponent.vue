@@ -179,6 +179,7 @@
                     phone: this.phone,
                     items: this.items
                 }
+                console.log(JSON.stringify(data))
                 axios.post(process.env.VUE_APP_URL+"sells",data).then(res=>{
                     console.log(res);
                 })

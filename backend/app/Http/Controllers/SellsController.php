@@ -28,29 +28,27 @@ class SellsController extends Controller
         if($reglas->fails()){
             return response()->json([
                 'status'=>'error',
-                'message'=>'Error',
+                'message'=>'Error de validación',
                 'data'=>$reglas->errors()
             ],201);
         }else{
             //VERIFICAR SI EXISTE EL USUARIO
-            try{
-                $user = User::where('email',$request->email)->first();
-                if(is_null($user)){
-                    $user = new User();
-                    $user-> name = $request->name;
-                    $user -> email = $request->email;
-                    $user -> password = Hash::make($request->email);
-                    $user -> phone = $request->phone;
-                    $user -> img = "default.jpg";
-                    $user -> address = $request->address;
-                    $user->save();
-                }//Llave null
+            $user = User::where('email',$request->email)->first();
+            if(is_null($user)){
+                $user = new User();
+                $user-> name = $request->name;
+                $user -> email = $request->email;
+                $user -> password = Hash::make($request->email);
+                $user -> phone = $request->phone;
+                $user -> img = "default.jpg";
+                $user -> address = $request->address;
+                $user->save();
 
                 //Guardar venta
                 $sell = new Sell();
                 $sell->status = 'preparacion';
                 $sell->ship_tax = 150.00;
-                $sell->id_user = $user->id_user;
+                $sell->id_user = $user->id;
                 $sell->save();
 
                 //guardar productos de la venta
@@ -67,17 +65,16 @@ class SellsController extends Controller
                     'sell'=>$sell,
                     'message'=>'Compra realizada :D'
                 ],200);
-            }catch(Exception $e){
+            }else{
                 return response()->json([
                     'status'=>'error',
-                    'message'=>'Todo imbecil(Validator Error)',
-                    'data'=>$reglas->errors()
+                    'message'=>'Email ya existe',
                 ],201);
             }
         }
     }
     //Hacer una venta con login
-    /*public function store2(Request $request){
+    public function store2(Request $request){
         $reglas=Validator::make($request->all(),[
             'status'=>'required',
             'ship_tax'=>'required',
@@ -108,7 +105,7 @@ class SellsController extends Controller
                 'message'=>'Compra realizada :D'
             ]);
         }
-    }*/
+    }
     //consultar una venta
     public function index(){
         $datos = Sell::select('sells.*','users.name as user_name')
