@@ -1,22 +1,43 @@
+import { useEffect, useState } from "react"
 import {StyleSheet, View, Text , TouchableWithoutFeedback, ImageBackground} from"react-native"
-export default function ProductItemComponent(){
+export default function ProductItemComponent({item}){
+    const [img,setImg] = useState("")
+    useEffect(()=>{
+        if(item!=null){
+            setImg("http://localhost:8000/img/products/"+item.img)
+        }
+    },[])
+    
     return (
-         <TouchableWithoutFeedback onPress={ ()=>{} }>
-            <View>
-                <ImageBackground source={{uri:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRytf_BpNDznFAdeXKNsuQlAwtmxS1osZl4FQ&usqp=CAU"}}
-                resizeMode='cover' 
-                style={styles.image} imageStyle={{borderRadius:25}}/>
-                <View>
-                    <Text>Carrito HotWheels</Text>
-                    <Text>$39.00</Text>
+         <TouchableWithoutFeedback onPress={ ()=>{} } 
+         style={styles.parent}>
+            <View style={{padding:10,backgroundColor:'white',margin:10}}>
+                 {
+                    item != null && (
+                            <View>
+                                <ImageBackground source={{uri:img}}
+                                resizeMode='cover' 
+                                style={styles.image} imageStyle={{borderRadius:25}}/>
+                                <Text style={styles.title}> {item.name}  </Text>
+                                <Text style={styles.price}> ${item.price} </Text>
 
-                </View>
+
+                            </View>
+                    )
+                 }
+                
             </View>
          </TouchableWithoutFeedback>
     )
 
 }
 const styles = StyleSheet.create({
+    parent:{
+        backgroundColor:'write',
+        padding:10,
+        marginTop:10,
+
+    },
     image: {
         margin:20,
         height:320,
@@ -24,5 +45,15 @@ const styles = StyleSheet.create({
         padding:0,
         zIndex:1
     },
+    title:{
+        fontWeight:'bold',
+        fontSize:18,
+        marginLeft:20,
+
+    },
+    price:{
+        marginLeft:20,
+
+    }
 
 })

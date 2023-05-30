@@ -1,6 +1,7 @@
 import {View,Text,ScrollView} from"react-native"
 import HeaderComponent from "../layouts/HeaderComponent"
 import ProductItemComponent from "../../components/ProductItemComponent" 
+import { useState, useEffect } from "react"
 
 export default function HomeComponent() {
   let data = [
@@ -9,18 +10,33 @@ export default function HomeComponent() {
     { id:3,name:'Producto 3', price:440},
 
   ]
-    
+  const [products,setProducts] = useState([])
+  const [cont, setCont] = useState(0)
+  let x=10
+  useEffect( ()=>{
+    setCont(x)
+    fetch('http://localhost:8000/api/products')
+      .then((res)=> res.json())
+      .then((data)=>{
+        console.log(data)
+        setProducts(data.data)
+      });
+
+  },[] )
   return (
     <View>
         <HeaderComponent/>
+        <Text>
+          {cont}
+        </Text>
         <ProductItemComponent/>
         <ScrollView style={{marginTop:60}}>
           {
-            data.map((item,index)=>{
+            products.map((item,index)=>{
               return (
-                <view key={"item_"+index}>
-                    <ProductItemComponent/>
-                </view>
+                <View key={"item_"+index}>
+                    <ProductItemComponent  item={item.product} key={"i_"+index} />
+                </View>
               )
             })
           }
